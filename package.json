@@ -1,0 +1,24 @@
+{
+  "name": "clicky",
+  "version": "1.0.0",
+  "description": "wk18hw",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucodyne/MemoryClicky.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucodyne/MemoryClicky/issues"
+  },
+  "homepage": "https://github.com/lucodyne/MemoryClicky#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "path": "^0.12.7"
+  }
+}
