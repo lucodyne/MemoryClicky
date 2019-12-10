@@ -1,2 +1,0 @@
-# NewsScraper
-wk18hw
