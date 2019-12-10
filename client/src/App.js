@@ -33,7 +33,8 @@ class App extends Component {
   }
 
   plusOne = () => {
-    const plusOne = this.state.score + 1;
+    let plusOne = this.state.score;
+    plusOne++;
     this.setState({ score: plusOne });
     if (this.state.topScore < plusOne) {
       this.setState({ topScore: plusOne });
@@ -47,17 +48,19 @@ class App extends Component {
   handleClick = imgID => {
     let dontMessWithState = new Array(...this.state.food);
     if (!dontMessWithState[imgID - 1].flag) {
+      console.log("plusOne!");
       this.plusOne();
       dontMessWithState[imgID - 1].flag = 1;
       this.setState({ food: dontMessWithState });
     } else {
+      console.log("lose!");
       dontMessWithState.forEach(element => {
         element.flag = 0;
       });
       this.setState({ food: dontMessWithState });
       this.scoreZero();
     }
-    console.log(this.state);
+    console.log(this.state.food);
     console.log(`SCORE: ${+this.state.score} TOP: ${this.state.topScore}`);
     this.shuffle();
   };
