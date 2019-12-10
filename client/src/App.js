@@ -47,29 +47,36 @@ class App extends Component {
 
   handleClick = imgID => {
     let dontMessWithState = new Array(...this.state.food);
-    if (!dontMessWithState[imgID - 1].flag) {
-      console.log("plusOne!");
-      this.plusOne();
-      dontMessWithState[imgID - 1].flag = 1;
-      this.setState({ food: dontMessWithState });
-    } else {
-      console.log("lose!");
-      dontMessWithState.forEach(element => {
-        element.flag = 0;
-      });
-      this.setState({ food: dontMessWithState });
-      this.scoreZero();
-    }
-    console.log(this.state.food);
-    console.log(`SCORE: ${+this.state.score} TOP: ${this.state.topScore}`);
-    this.shuffle();
+    dontMessWithState.forEach(element => {
+      if (element.imgID === imgID) {
+        if (!element.flag) {
+          console.log("plusOne!");
+          this.plusOne();
+          element.flag = 1;
+          this.setState({ food: dontMessWithState });
+        } else {
+          console.log("lose!");
+          dontMessWithState.forEach(element => {
+            element.flag = 0;
+          });
+          this.setState({ food: dontMessWithState });
+          this.scoreZero();
+        }
+      }
+      console.log(this.state.food);
+      console.log(`SCORE: ${+this.state.score} TOP: ${this.state.topScore}`);
+      this.shuffle();
+    });
   };
 
   render() {
     return (
       <>
         <Top>
-          <Score score={0} topScore={0}></Score>
+          <Score
+            score={this.state.score}
+            topScore={this.state.topScore}
+          ></Score>
         </Top>
         <div className="container">
           <br />
