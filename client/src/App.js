@@ -3,6 +3,7 @@ import Top from "./components/Top";
 import Score from "./components/Score";
 import Card from "./components/Card";
 import json from "./json.json";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends Component {
   state = { score: 0, topScore: 0, food: json };
@@ -71,29 +72,31 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <Top>
-          <Score
-            score={this.state.score}
-            topScore={this.state.topScore}
-          ></Score>
-        </Top>
-        <div className="container">
-          <br />
-          <br />
-          <div className="row">
-            <div className="col s11 offset-s1">
-              {this.state.food.map(food => (
-                <Card
-                  imgID={food.imgID}
-                  key={food.imgID}
-                  handleClick={this.handleClick}
-                ></Card>
-              ))}
+      <Router>
+        <Route path="*">
+          <Top>
+            <Score
+              score={this.state.score}
+              topScore={this.state.topScore}
+            ></Score>
+          </Top>
+          <div className="container">
+            <br />
+            <br />
+            <div className="row">
+              <div className="col s11 offset-s1">
+                {this.state.food.map(food => (
+                  <Card
+                    imgID={food.imgID}
+                    key={food.imgID}
+                    handleClick={this.handleClick}
+                  ></Card>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </>
+        </Route>
+      </Router>
     );
   }
 }
