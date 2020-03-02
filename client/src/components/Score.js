@@ -4,7 +4,8 @@ function Score(props) {
   return (
     <ul>
       <li>
-        Score : {props.score} | Top Score : {props.topScore}
+        Score : {props.score} | Top Score : {props.topScore} / 16 (
+        {(props.topScore / 16) * 100} %)
       </li>
     </ul>
   );
