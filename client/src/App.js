@@ -82,6 +82,7 @@ class App extends Component {
           </Top>
           <div className="container">
             <br />
+            <p className="center">Click on each image exactly once to win!</p>
             <br />
             <div className="row">
               <div className="col s11 offset-s1">
