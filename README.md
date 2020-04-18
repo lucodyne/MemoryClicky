@@ -2,7 +2,7 @@
 
 ## How to Play
 Click each image exactly once to win! Your score will be up in the top right corner.
-![thumbnail](./clicky-thumb)
+![thumbnail](./clicky-thumb.png)
 
 ## Requirements
 JavaScript should be enabled in browser.
